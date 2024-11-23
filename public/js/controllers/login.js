@@ -6,6 +6,7 @@ btnLogin.addEventListener('click', async (e) => {
     e.preventDefault();
     const username = document.querySelector('input[name="username"]').value.trim();
     const password = document.querySelector('input[name="password"]').value.trim();
+
     if (username === '' || password === '') {
         const alert = new Alert('w', 'Por favor, rellene todos los campos.');
         alert.showAlert();
@@ -23,17 +24,19 @@ btnLogin.addEventListener('click', async (e) => {
 
     const result = await response.json();
 
-    // if(result.message === 'El usuario no existe' || result.message === 'La contraseña es incorrecta') {
-    //     const alert = new Alert('w', 'Usuario o contraseña incorrectos.');
-    //     alert.showAlert();
-    //     return;
-    // }
+    // Si el usuario o contraseña son incorrectos
+    if(result.session === false){
+        const alert = new Alert('w', 'Usuario o contraseña incorrectos.');
+        alert.showAlert();
+        return;
+    }
 
-    // if(result.username.length > 0) {
-    //     const alert = new Alert('c', 'Bienvenido!');
-    //     alert.showAlert();
-    //     setTimeout(() => {
-    //         window.location.href = `${window.location.href}/dashboard`;
-    //     }, 2500);
-    // }
+    // Si el usuario y contraseña son correctos
+    if(result.session === true) {
+        const alert = new Alert('c', 'Bienvenido!');
+        alert.showAlert();
+        setTimeout(() => {
+            window.location.href = `${window.location.origin}/gamez/profile`;
+        }, 2500);
+    }
 });

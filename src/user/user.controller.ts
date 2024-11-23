@@ -1,5 +1,6 @@
 import * as bcrypt from 'bcrypt';
-import { Controller, Post, Body, Put, Delete, HttpException, HttpStatus } from "@nestjs/common";
+import { Controller, Post, Body, Req} from "@nestjs/common";
+import { Request, Response } from 'express';
 
 import { UserService } from "./user.service";
 import { CreateUserDto } from "src/dto/create-user.dto";
@@ -12,13 +13,12 @@ export class UserController {
 
     // Endpoint para iniciar sesión
     @Post('/gamez/login')
-    async login(@Body() body: LoginUserDto) {
+    async login(@Body() body: LoginUserDto, @Req() req: Request) {
         // Buscar el usuario
         const user = await this.userService.login(body.username);
 
-        // Verificar si el usuario existe
-        if (!user) {
-            throw new HttpException('Usuario no encontrado', HttpStatus.NOT_FOUND);
+        if(!user) {
+            return { session: false, message: 'El usuario no existe' };
         }
 
         // Comparar contraseñas
@@ -26,11 +26,17 @@ export class UserController {
 
          // Si la contraseña no es válida, lanzar un error
          if (!isPasswordValid) {
-            throw new HttpException('Credenciales inválidas', HttpStatus.UNAUTHORIZED);
+            return { session: false, message: 'El usuario no existe' };
         }
 
+        // Guardar información del usuario en la sesión
+        req.session.user = {
+            username: user.username,
+            role: user.role,
+        };
+
         // Si las credenciales son válidas, retornar un mensaje de éxito
-        return { message: 'Inicio de sesión exitoso' };
+        return { session: true, message: 'Inicio de sesión exitoso'};
     }
 
     // Endpoint para registrar un usuario

@@ -77,11 +77,14 @@ a{
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .mt-10{
     margin-top: 10px;
+}
+
+.mt-15{
+    margin-top: 15px;
 }
 
 .mt-20{
@@ -118,39 +121,85 @@ section.userslist{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     position: relative;
 }
 
-.form-control label{
-    font-size: 14px;
-    color: var(--color-secondary);
-    margin-bottom: 5px;
+.form-group{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.two-rows{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .card .form-control svg{
     color: var(--color-secondary);
     transition: var(--transition);
     position: absolute;
-    top: 50%;
-    right: 20px;
+    top: 23%;
+    left: 30px;
+}
+
+.form-group label{
+    font-size: 18px;
+    color: var(--color-primary);
+    margin-left: 5px;
+    line-height: 24px;
+    order: 2;
+}
+
+.card-subtitle:hover{
+    color: var(--border-color);
+}
+
+.form-group label:hover{
+    color: var(--border-color);
+}
+
+.form-group a{
+    font-size: 18px;
+}
+
+.form-group a:hover{
+    color: var(--border-color);
+}
+
+.form-group input[type="checkbox"]{
+    width: 15px;
+    height: 15px;
+    order: 1;
+    margin-left: 5px;
 }
 
 .form-control input{
-    width: 90%;
+    width: 70%;
     height: auto;
-    padding: 7px 10px;
-    border-radius: 7px;
+    padding: 18px 60px;
+    border-radius: 50px;
     outline: none;
     font-size: 20px;
-    color: var(--color-secondary);
-    background-color: var(--background);
-    border: 1px solid var(--background);
+    color: var(--color-primary);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: var(--transition);
 }
 
 .form-control input::placeholder{
-    color: var(--color-icon-form);
-    font-size: 14px;
+    color: var(--color-primary);
+    font-size: 20px;
+    position: absolute;
+    top: calc(50%-61px);
+    left: 60px;
 }
 
 .form-control input:focus{
@@ -209,17 +258,19 @@ section.userslist{
 }
 
 .btn{
-    font-size: 16px;
-    padding: 10px 30px;
+    width: calc(100% - 28px);
+    font-size: 20px;
+    padding: 18px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     outline: none;
+    font-weight: bold;
 }
 
 .btn-primary{
-    background-color: var(--color-icon-form);
-    color: var(--color-primary);
+    background-color: rgb(224 225 227);
+    color: var(--background-container-dark);
     transition: var(--transition);
 }
 

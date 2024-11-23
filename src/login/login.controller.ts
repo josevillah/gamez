@@ -1,18 +1,22 @@
-import { Controller, Get, Post, Res, Body } from '@nestjs/common';
-import { Response } from 'express';
+import { Controller, Get, Post, Res, Body, Req} from '@nestjs/common';
+import { Response, Request } from 'express';
 
-@Controller()
+@Controller('/gamez')
 export class LoginController {
 
-  @Get('/gamez')
+  @Get('/')
   gamez(@Res() res: Response) {
     return res.redirect('/gamez/panelLogin');
   }
 
-  @Get('/gamez/panelLogin')
-  panelLogin(@Res() res: Response) {
+  @Get('/panelLogin')
+  panelLogin(@Res() res: Response, @Req() req: Request) {
+    // Verifica se o usuário está logado
+    if(req.session.user) {
+      return res.redirect('/gamez/profile');
+    }
     // Renderiza la vista "login.ejs" con los datos opcionales
-    return res.render('login/bodys/login', { title: 'Login Page' });
+    return res.render('bodys/login', { title: 'Login Page' });
   }
 
 }

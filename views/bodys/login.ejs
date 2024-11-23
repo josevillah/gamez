@@ -1,0 +1,45 @@
+<%- include('../headers/header_admin') %>
+
+<!-- Reproductor de audio con auto-reproducción y loop -->
+<audio id="lobbySound" src="/sounds/lobbySound.mp3" autoplay loop muted></audio>
+
+<article class="bg-body-login">
+    <article class="container">
+        <article class="card-container">
+            <form action="">
+                <article class="card">
+                    <section class="card-header">
+                        <a href="" class="card-subtitle">¿No tienes una cuenta? Regístrate</a>
+                    </section>
+                    <section class="card-header">
+                        <h1 class="card-title">Te damos la bienvenida. 👋</h1>
+                    </section>
+                    <section class="card-body mt-15">
+                        <div class="form-control">
+                            <input id="username" type="text" name="username" placeholder="Username">
+                            <svg width="30"  height="30"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
+                        </div>
+                        <div class="form-control mt-15">
+                            <input id="password" type="password" name="password" placeholder="Password">
+                            <svg width="30"  height="30"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16.555 3.843l3.602 3.602a2.877 2.877 0 0 1 0 4.069l-2.643 2.643a2.877 2.877 0 0 1 -4.069 0l-.301 -.301l-6.558 6.558a2 2 0 0 1 -1.239 .578l-.175 .008h-1.172a1 1 0 0 1 -.993 -.883l-.007 -.117v-1.172a2 2 0 0 1 .467 -1.284l.119 -.13l.414 -.414h2v-2h2v-2l2.144 -2.144l-.301 -.301a2.877 2.877 0 0 1 0 -4.069l2.643 -2.643a2.877 2.877 0 0 1 4.069 0z" /><path d="M15 9h.01" /></svg>
+                        </div>
+                    </section>
+                    <section class="form-control mt-15">
+                        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                    </section>
+                    <div class="two-rows">
+                        <section class="form-control form-group mt-15">
+                            <label for="remenberme">Recordar mi cuenta</label>
+                            <input type="checkbox" name="remenberme" id="remenberme">
+                        </section>
+                        <section class="form-control form-group mt-15">
+                            <a href="/register">Recuperar contraseña</a>
+                        </section>
+                    </div>
+                </article>
+            </form>
+        </article>
+    </article>
+</article>
+<%- include('../components/alerts') %>
+<%- include('../footers/footer_admin') %>

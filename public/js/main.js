@@ -34,3 +34,12 @@ if (dropdownOptions) {
     });
 }
 // fin del selector de opciones
+
+const sound = document.getElementById("lobbySound");
+if(sound){
+    window.addEventListener("click", () => {
+        sound.muted = false;  // Quitar el mute
+        sound.volume = 0.1;    // Bajar el volumen
+        sound.play();         // Reproducir el video
+    });
+}
