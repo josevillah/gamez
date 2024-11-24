@@ -12,7 +12,7 @@ export class UserController {
     constructor (private userService: UserService) {}
 
     // Endpoint para iniciar sesión
-    @Post('/gamez/login')
+    @Post('/login')
     async login(@Body() body: LoginUserDto, @Req() req: Request) {
         // Buscar el usuario
         const user = await this.userService.login(body.username);
@@ -40,7 +40,7 @@ export class UserController {
     }
 
     // Endpoint para registrar un usuario
-    @Post('/gamez/register')
+    @Post('/singup')
     async create(@Body() body: CreateUserDto) {
         // Encriptar la contraseña
         const saltRounds = 10; // Puedes ajustar el número de rondas según tus necesidades

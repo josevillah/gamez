@@ -14,7 +14,7 @@ btnLogin.addEventListener('click', async (e) => {
     }
 
     const data = { username, password };
-    const response = await fetch('/gamez/login', {
+    const response = await fetch('/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ btnLogin.addEventListener('click', async (e) => {
         const alert = new Alert('c', 'Bienvenido!');
         alert.showAlert();
         setTimeout(() => {
-            window.location.href = `${window.location.origin}/gamez/profile`;
+            window.location.href = `${window.location.origin}/profile`;
         }, 2500);
     }
 });
